@@ -6,7 +6,7 @@
 🧐 Users can check their feedback.
 <br>
 <br>
-## Tech stack 🌂 🧶 👩🏻‍💻 🎒 ☄️ ##
+## Tech stack 🔵 🧶 👩🏻‍💻 🎒 ☄️ ##
  
  
 #### 🔵 __Design Tools__ ####
