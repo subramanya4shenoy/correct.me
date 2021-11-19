@@ -1,32 +1,37 @@
-# #1 IDEA for Fullstack project.
+# Fullstack project (#1). 🎖 
 
-🧐 A self feedback collection tool. 
-🧐 Connect with Facebook and collect your feedback from your friends and peers anonymously*.
-🧐 Share the link for feed back in social media, people with access can access and provide feedbacks.
+🧐 A self feedback collection tool. </br>
+🧐 Connect with Facebook and collect your feedback from your friends and peers anonymously*. </br>
+🧐 Share the link for feed back in social media, people with access can access and provide feedbacks.</br>
 🧐 Users can check their feedback.
 <br>
 <br>
-## 🌂 __Tech stack __  🧶 👩🏻‍💻 🎒 ☄️ ##
-
-#### ☂️ __Design Tools__ ####
- 👩‍🎨 AdobeXD
+## Tech stack 🌂 🧶 👩🏻‍💻 🎒 ☄️ ##
  
-#### ☂️ __Frontend stack__ ####
- 🧶 React </br>
- 🧶 React-hooks </br>
- 🧶 xyz Framework (yet to finalize) </br>
- 🧶 GraphQL </br>
- 🧶 ApolloGraphQL
  
-#### ☂️ __Backend stack__ ####
- 👩🏻‍💻 Node </br>
- 👩🏻‍💻 Express </br>
- 👩🏻‍💻 GraphQL </br>
- 👩🏻‍💻 mongoose
+#### 🔵 __Design Tools__ ####
+ - 👩‍🎨 AdobeXD
  
-#### ☂️ __Database__ ####
- 🎒 MongoDB
  
-#### ☂️ __Deployment__ ####
- ☄️ Heroku - Node </br>
- ☄️ aws-s3 - UI (not decided)
+#### 🔵 __Frontend stack__ ####
+ - 🧶 React 
+ - 🧶 React-hooks 
+ - 🧶 xyz Framework (yet to finalize) 
+ - 🧶 GraphQL 
+ - 🧶 ApolloGraphQL
+ 
+ 
+#### 🔵 __Backend stack__ ####
+ - 🏀 Node 
+ - 🏀 Express 
+ - 🏀 GraphQL 
+ - 🏀 mongoose
+ 
+ 
+#### 🔵 __Database__ ####
+ - 🎒 MongoDB
+ 
+ 
+#### 🔵 __Deployment__ ####
+ - ☄️ Heroku - Node 
+ - ☄️ aws-s3 - UI (not decided)
