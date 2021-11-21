@@ -1,17 +1,31 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+
+    type GivenFeedBack {
+        feedbacks: [Feedback],
+        user:User
+    }
+
     type Feedback {
      message: String!
     }
 
+    type User {
+        name: String!
+        profilePic: String!
+    }
+
     #queries
     type Query {
-        getAllFeedBacks: [Feedback!]!
+        getAllFeedbacks: [Feedback!]!
+        getAllGivenFeedbacks: [GivenFeedBack!]!
     }
 
     #Mutaions
-
+    type Mutation {
+        postFeedback(message: String!): Feedback!
+     }
 `
 
-module.exports =  { typeDefs };
+module.exports = { typeDefs };
