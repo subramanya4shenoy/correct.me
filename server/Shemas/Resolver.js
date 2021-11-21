@@ -15,6 +15,11 @@ const resolvers = {
         postFeedback(parent, args) {
             const { message } = args;
             return {message: `${message}`};
+        },
+
+        deleteFeedback(parent, args) {
+            const { id } = args;
+            return true;
         }
     }
 }

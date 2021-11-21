@@ -25,6 +25,7 @@ const typeDefs = gql`
     #Mutaions
     type Mutation {
         postFeedback(message: String!): Feedback!
+        deleteFeedback(id:ID!): Boolean!
      }
 `
 
