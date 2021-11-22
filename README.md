@@ -16,7 +16,8 @@
 #### 🔵 __Frontend stack__ ####
  - 🧶 React 
  - 🧶 React-hooks 
- - 🧶 xyz Framework (yet to finalize) 
+ - 🧶 Materialize UI 
+ - 🧶 Tailwind CSS utility
  - 🧶 GraphQL 
  - 🧶 ApolloGraphQL
  
