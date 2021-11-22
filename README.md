@@ -17,6 +17,7 @@
  - 🧶 React 
  - 🧶 React-hooks 
  - 🧶 Materialize UI 
+ - 🧶 Tailwind CSS utility
  - 🧶 GraphQL 
  - 🧶 ApolloGraphQL
  
