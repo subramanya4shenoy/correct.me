@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="577" height="541" viewBox="0 0 577 541">
+  <g id="Group_10" data-name="Group 10" transform="translate(-1526 -700)">
+    <g id="Group_2" data-name="Group 2" transform="translate(1200 1189)">
+      <g id="Ellipse_3" data-name="Ellipse 3" transform="translate(459 -368)" fill="#343433" stroke="#707070" stroke-width="1">
+        <circle cx="155.5" cy="155.5" r="155.5" stroke="none"/>
+        <circle cx="155.5" cy="155.5" r="155" fill="none"/>
+      </g>
+      <path id="Polygon_1" data-name="Polygon 1" d="M89,77.527c14.853-31.12,59.151-31.12,74,0L224,205.34A41,41,0,0,1,187,264H65a41,41,0,0,1-37-58.66Z" transform="translate(488 -489)" fill="#343433"/>
+      <path id="Polygon_2" data-name="Polygon 2" d="M88.947,78.224c14.81-31.265,59.3-31.265,74.106,0l61.212,129.225A41,41,0,0,1,187.212,266H64.788a41,41,0,0,1-37.053-58.552Z" transform="translate(903 -344) rotate(90)" fill="#343433"/>
+      <path id="Polygon_3" data-name="Polygon 3" d="M88.972,77.876c14.831-31.193,59.224-31.193,74.055,0l61.107,128.519A41,41,0,0,1,187.107,265H64.893a41,41,0,0,1-37.028-58.606Z" transform="translate(740 52) rotate(180)" fill="#343433"/>
+      <path id="Polygon_4" data-name="Polygon 4" d="M89,77.527c14.853-31.12,59.151-31.12,74,0L224,205.34A41,41,0,0,1,187,264H65a41,41,0,0,1-37-58.66Z" transform="translate(326 -92) rotate(-90)" fill="#343433"/>
+    </g>
+    <text id="Always_Free" data-name="Always 
+Free" transform="translate(1800 960)" fill="#fdf7f2" font-size="40" font-family="Futura-Medium, Futura" font-weight="500"><tspan x="-72.275" y="0">Always </tspan><tspan x="-39.443" y="53">Free</tspan></text>
+  </g>
+</svg>
