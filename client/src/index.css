@@ -3,11 +3,30 @@
 @tailwind utilities;
 body {
   margin: 0;
+  background: #FDF7F2;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: futuraBold;
+  src: url(./assets/fonts/FuturaBold.ttf);
+}
+
+@font-face {
+  font-family: futuraMedium;
+  src: url(./assets/fonts/FuturaMedium.ttf);
+}
+
+.futuraBold {
+  font-family: futuraBold;
+}
+
+.futuraMedium {
+  font-family: futuraMedium;
 }
 
 code {

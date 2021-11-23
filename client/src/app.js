@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FeedbackPage from "./Pages/FeedbackPage";
+import GiveFeedback from "./Pages/GiveFeedback";
 import LandingPage from "./Pages/LandingPage";
 import LoginPage from "./Pages/LoginPage";
 import Page404 from "./Pages/Page404";
-import RegisterPage from "./Pages/RegisterPage";
 
 export default function App() {
     return (
@@ -12,7 +12,7 @@ export default function App() {
             <Routes>
                 <Route path="/feedback" element={<FeedbackPage />} />
                 <Route path="/feedback/:feedbackId" element={<FeedbackPage />} />
-                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/gf/:feedbackId" element={<GiveFeedback />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/" element={<LandingPage />} />
                 <Route path="*" element={<Page404 />} />
