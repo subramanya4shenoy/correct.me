@@ -1,9 +1,12 @@
 import React from 'react'
 import { useParams } from "react-router-dom";
+import Feedback from '../components/Feedback'
 
 const FeedbackPage = () => {
     let { feedbackId } = useParams();
-    return <h2>Feedbackscreen - {feedbackId}</h2>;
+    return (
+        <Feedback feedbackId={feedbackId}/>
+    )
 }
 
 export default FeedbackPage

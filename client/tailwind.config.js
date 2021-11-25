@@ -5,7 +5,13 @@ module.exports = {
     extend: {},
     colors: {
       body: '#FDF7F2',
-      textCommon: '#343433'
+      textCommon: '#343433',
+      primarylighter: '#C8FACD',
+      primarylight: '#5BE584',
+      primarymain: '#00AB55',
+      primarydark: '#007B55',
+      primarydarker: '#005249',
+      primarycontrastText: '#fff'
     }
   },
   variants: {
