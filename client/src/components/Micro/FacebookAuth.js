@@ -1,10 +1,17 @@
 import React from 'react'
-import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom'
+import FacebookLogin from 'react-facebook-login';
 
 const FacebookAuth = () => {
+
+    const responseFacebook = (response) => {
+        console.log(response);
+    }
+
     return (
-        <Button className="futuraMedium align-center" variant="text" component={Link} to="/feedback">Facebook</Button>
+        <FacebookLogin
+            appId="293926452664320"
+            autoLoad={false}
+            callback={responseFacebook} />
     )
 }
 
