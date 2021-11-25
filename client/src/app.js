@@ -7,6 +7,7 @@ import LoginPage from "./Pages/LoginPage";
 import Page404 from "./Pages/Page404";
 
 export default function App() {
+
     return (
         <Router>
             <Routes>
