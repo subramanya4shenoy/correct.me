@@ -20,6 +20,10 @@ const resolvers = {
         deleteFeedback(parent, args) {
             const { id } = args;
             return true;
+        },
+
+        AuthenticateFacebookUser(parent, args) {
+            return ({name: "subu", profilePic: "https://5.imimg.com/data5/PD/CS/MY-28139693/fresh-hapus-mango-500x500.jpg", accessToken: "awdwwwwq_Token"})
         }
     }
 }
