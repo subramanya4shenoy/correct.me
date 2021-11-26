@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import FeedbackShareCard from './FeedbackShareCard';
 
-const FeedbackCard = () => {
+const FeedbackCard = ({message}) => {
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -18,7 +18,7 @@ const FeedbackCard = () => {
                 <img className="mx-auto h-full" src={cactus} alt="U"/>
             </div>
             <div className="futuraMedium text-textCommon opacity-75 text-sm self-center">
-            Yu seems to be a rude person. Better personYu seems to be a rude person. 
+              {message}
             </div>
         </div>
         <div>
@@ -28,7 +28,7 @@ const FeedbackCard = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <FeedbackShareCard feedback={"Yu seems to be a rude person. Better personYu seems to be a rude person. "}/>
+        <FeedbackShareCard feedback={message}/>
       </Modal>
     </div>
         </>
