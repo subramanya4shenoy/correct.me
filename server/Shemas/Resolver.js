@@ -1,13 +1,18 @@
 
 const resolvers = {
     Query: {
-        getAllFeedbacks() {
-            return [{message: "first message"}, {message: "second"}];
+        getFeedbacks(parents, args) {
+            let { type } = args;
+            if(type === 'Given') {
+             return [{message: "given 1"}, {message: "given 2 "}, {message: "given 1"}, {message: "given 2 "}];
+            } else {
+                return [{message: "received 1"}, {message: "receiver 2 "}];
+            }
         },
 
-        getAllGivenFeedbacks() {
-            return [{feedback:[{message: "first message"}, {message: "second"}], user:{name:"s", profilePic: "b"}}, 
-                    {feedback:[{message: "first message"}, {message: "second"}], user:{name:"Q", profilePic: "W"}}];
+
+        getShareLink() {
+            return "https://cm.com/gf/122111"
         }
     },
 
