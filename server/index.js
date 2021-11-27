@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 })
 
 mongoose
-.connect(`mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.s8zg4.mongodb.net/${process.env.MONGO_DB_DEFAULTDB}?retryWrites=true&w=majority`)
+.connect(`mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.s8zg4.mongodb.net/${process.env.MONGO_DB_DEFAULT_DB}?retryWrites=true&w=majority`)
 .then(result => {
     app.listen(process.env.PORT);
     console.log("connected to mongoDB")
