@@ -36,9 +36,10 @@ const resolvers = {
                     console.log(userDoc);
                     if (userDoc) {
                         console.log("user Exists");
+                        //set session.
                         return ({ name: "subu", profilePic: "https://5.imimg.com/data5/PD/CS/MY-28139693/fresh-hapus-mango-500x500.jpg", accessToken: "awdwwwwq_Token" });
                     } else {
-                        const tempUser = new User({ userID: userID, name: name, source: graphDomain});
+                        const tempUser = new User({ userID: userID, name: name, source: graphDomain });
                         return tempUser.save()
                             .then(result => {
                                 console.log("success!!!");
