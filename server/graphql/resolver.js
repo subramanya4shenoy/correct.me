@@ -1,31 +1,70 @@
 const User = require('../Models/user');
+const Feedback = require('../Models/Feedback');
+
 const jwt = require('jsonwebtoken');
+const user = require('../Models/user');
 
 const resolvers = {
     Query: {
-        getFeedbacks(parents, args) {
-            let { type } = args;
-            if (type === 'Given') {
-                return [{ message: "given 1" }, { message: "given 2 " }, { message: "given 1" }, { message: "given 2 " }];
-            } else {
-                return [{ message: "received 1" }, { message: "receiver 2 " }];
-            }
+        getFeedbacks: async function(parents, args, context) {
+                const { user, authStaus } = context;
+                if(authStaus) {
+                    console.log(user);
+                    const getUserFeedBacks = await User.findOne({userID: user.userID});
+                    if(getUserFeedBacks) {
+                        console.log("user data ===>", getUserFeedBacks);
+                        const allFeedbacksForCurrentUser = await Feedback.find({ _id : { $in : getUserFeedBacks.feedback_recieved } })
+                        if(allFeedbacksForCurrentUser) {
+                            console.log("feedback data ===>", allFeedbacksForCurrentUser);
+                            return allFeedbacksForCurrentUser;
+                        } else {
+                            return [];
+                        }
+                    } else {
+                        console.log("user doesnot exists")
+                    }
+                } else {
+                    console.log("not authorised")
+                }
+                return [];
         },
 
 
-        getShareLink(parent, args, context) {
-            console.log(context.authStaus);
-            if(context.authStaus) {
-                return "https://cm.com/gf/122111"
+        getShareLink: async function(parent, args, context) {
+            const { user, authStaus } = context;
+            let userId= '';
+            if(authStaus) {
+                const currentUser = await User.findOne({userID: user.userID})
+                if(currentUser) {
+                    userId = currentUser._id.toString();
+                } else {
+                    console.log("usr not found");
+                }
+                return `https://cm.com/gf/${userId}`
             }
             return "relogin"
         }
     },
 
     Mutation: {
-        postFeedback(parent, args) {
-            const { message } = args;
-            return { message: `${message}` };
+        postFeedback: async function(parent, args) {
+            const { id, message } = args;
+            const toUser = await User.findOne({_id: id})
+            if(toUser) {
+                const createdFeedback = await new Feedback({ message: message });
+                if(createdFeedback) {
+                    console.log("create Feedback==>", createdFeedback._id.toString());
+                    toUser.feedback_recieved.push( createdFeedback._id.toString());
+                    toUser.save();
+                    createdFeedback.save();
+                    return true;
+                } else {
+                    console.log("Feedback creation failed");
+                }
+            } else {
+                console.log("User doesnot exists");
+            }
+            return  false;
         },
 
         deleteFeedback(parent, args) {
@@ -38,7 +77,7 @@ const resolvers = {
             const userDoc = await User.findOne({ userID: userID});
             // if user not found create new one
             if(!userDoc) {
-                const tempUser = await new User({ userID: userID, name: name, source: graphDomain }); 
+                const tempUser = await new User({ userID: userID, name: name, source: graphDomain, feedback_recieved: [], feedback_given:[] }); 
                 if(tempUser) {
                     const succesfullysaved = await tempUser.save();
                     if(!succesfullysaved) { console.log("error saving data"); } 
