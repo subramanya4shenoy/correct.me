@@ -19,7 +19,6 @@ mutation AuthenticateFacebookUser($accessToken: String!,
                                         expiresIn:$expiresIn,
                                         signedRequest:$signedRequest )   {
                                         name
-                                        profilePic
                                         accessToken
                                     }                        
 }
