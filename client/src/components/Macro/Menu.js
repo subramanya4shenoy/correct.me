@@ -2,7 +2,7 @@ import React from 'react'
 
 const Menu = ({selected, onMenuChange}) => {
 
-    const menuList = ["Recieved", "Given"];
+    const menuList = ["Recieved"];
 
     return (
         <div className="text-2xl futuraMedium px-10 text-textCommon">
