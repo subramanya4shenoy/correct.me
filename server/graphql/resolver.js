@@ -1,4 +1,5 @@
 const User = require('../Models/user');
+const jwt = require('jsonwebtoken');
 
 const resolvers = {
     Query: {
@@ -28,25 +29,32 @@ const resolvers = {
             return true;
         },
 
-        AuthenticateFacebookUser(parent, args) {
-            console.log(args);
+        AuthenticateFacebookUser: async function(parent, args) {
             const { userID, accessToken, name, graphDomain } = args;
-            return User.findOne({ userID: userID })
-                .then((userDoc) => {
-                    console.log(userDoc);
-                    if (userDoc) {
-                        console.log("user Exists");
-                        //set session.
-                        return ({ name: "subu", profilePic: "https://5.imimg.com/data5/PD/CS/MY-28139693/fresh-hapus-mango-500x500.jpg", accessToken: "awdwwwwq_Token" });
-                    } else {
-                        const tempUser = new User({ userID: userID, name: name, source: graphDomain });
-                        return tempUser.save()
-                            .then(result => {
-                                console.log("success!!!");
-                                return ({ name: "subu", profilePic: "https://5.imimg.com/data5/PD/CS/MY-28139693/fresh-hapus-mango-500x500.jpg", accessToken: "awdwwwwq_Token" });
-                            }).catch((err) => { console.log("error"); })
+            const userDoc = await User.findOne({ userID: userID});
+            // if user not found create new one
+            if(!userDoc) {
+                const tempUser = await new User({ userID: userID, name: name, source: graphDomain }); 
+                if(tempUser) {
+                    const succesfullysaved = await tempUser.save();
+                    if(!succesfullysaved) { console.log("error saving data"); } 
+                    else {
+                        // generate jwt and return
+                        const token = jwt.sign({
+                            userID: userID,
+                            accessToken: accessToken
+                        }, process.env.JWT_SECRET, { expiresIn: '1h' });            
+                        return ({ name: "subu", accessToken: token })
                     }
-                }).catch(err => { console.log(err); })
+                } 
+            }
+            // if user found generate jwt and send
+            const token = jwt.sign({
+                userID: userID,
+                accessToken: accessToken
+            }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+            return ({ name: userDoc.name, accessToken: token })
         }
     }
 }
