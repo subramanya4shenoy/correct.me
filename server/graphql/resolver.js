@@ -44,7 +44,7 @@ const resolvers = {
                             userID: userID,
                             accessToken: accessToken
                         }, process.env.JWT_SECRET, { expiresIn: '1h' });            
-                        return ({ name: "subu", accessToken: token })
+                        return ({ name: "subu", id:userID, accessToken: token })
                     }
                 } 
             }
@@ -54,7 +54,7 @@ const resolvers = {
                 accessToken: accessToken
             }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-            return ({ name: userDoc.name, accessToken: token })
+            return ({ name: userDoc.name, id:userID, accessToken: token })
         }
     }
 }

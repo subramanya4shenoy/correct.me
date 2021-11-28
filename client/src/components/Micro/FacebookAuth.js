@@ -12,8 +12,11 @@ const FacebookAuth = () => {
 
 
     const login = ({AuthenticateFacebookUser}) => {
+        const { accessToken, name, id} = AuthenticateFacebookUser;
         console.log(AuthenticateFacebookUser);
         // setStorage
+        localStorage.setItem('token', accessToken);
+        localStorage.setItem('user', JSON.stringify({name: name, id: id}));
         navigate("../feedback", { replace: true });
     }
 

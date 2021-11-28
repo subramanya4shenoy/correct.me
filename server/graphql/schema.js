@@ -8,6 +8,7 @@ const typeDefs = gql`
 
     type User {
         name: String!
+        id: String!
         accessToken: String!
     }
 
