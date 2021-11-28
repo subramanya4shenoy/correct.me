@@ -13,7 +13,8 @@ const resolvers = {
         },
 
 
-        getShareLink() {
+        getShareLink(parent, args, { user, authStaus }) {
+            console.log(user, authStaus);
             return "https://cm.com/gf/122111"
         }
     },
