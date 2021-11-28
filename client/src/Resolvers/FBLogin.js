@@ -19,6 +19,7 @@ mutation AuthenticateFacebookUser($accessToken: String!,
                                         expiresIn:$expiresIn,
                                         signedRequest:$signedRequest )   {
                                         name
+                                        id
                                         accessToken
                                     }                        
 }

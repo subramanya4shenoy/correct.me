@@ -13,8 +13,12 @@ const resolvers = {
         },
 
 
-        getShareLink() {
-            return "https://cm.com/gf/122111"
+        getShareLink(parent, args, context) {
+            console.log(context.authStaus);
+            if(context.authStaus) {
+                return "https://cm.com/gf/122111"
+            }
+            return "relogin"
         }
     },
 
@@ -29,7 +33,7 @@ const resolvers = {
             return true;
         },
 
-        AuthenticateFacebookUser: async function(parent, args) {
+        AuthenticateFacebookUser: async function(parent, args, {user, authStaus}) {
             const { userID, accessToken, name, graphDomain } = args;
             const userDoc = await User.findOne({ userID: userID});
             // if user not found create new one
@@ -44,7 +48,7 @@ const resolvers = {
                             userID: userID,
                             accessToken: accessToken
                         }, process.env.JWT_SECRET, { expiresIn: '1h' });            
-                        return ({ name: "subu", accessToken: token })
+                        return ({ name: "subu", id:userID, accessToken: token })
                     }
                 } 
             }
@@ -54,7 +58,7 @@ const resolvers = {
                 accessToken: accessToken
             }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-            return ({ name: userDoc.name, accessToken: token })
+            return ({ name: userDoc.name, id:userID, accessToken: token })
         }
     }
 }

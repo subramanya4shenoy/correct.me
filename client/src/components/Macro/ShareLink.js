@@ -4,7 +4,7 @@ import { SHARE_LINK } from '../../Resolvers/ShareLink';
 
 const ShareLink = () => {
 
-    const { loading, data } = useQuery(SHARE_LINK);
+    const { loading, data } = useQuery(SHARE_LINK, { fetchPolicy: 'network-only'});
 
     return (
         <div className="flex self-center justify-center futuraMedium mt-4 mb-6">

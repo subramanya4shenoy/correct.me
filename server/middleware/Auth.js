@@ -1,24 +1,24 @@
 const jwt = require('jsonwebtoken');
 
-module.exports = (req, res, next) => {
-  const authHeader = req.get('Authorization');
+module.exports = (ctx) => {
+  const authHeader = ctx.req.headers.authorization;
+  let authStaus = false;
   if (!authHeader) {
-    req.isAuth = false;
-    return next();
+    authStaus = false;
+    return authStaus;
   }
   const token = authHeader.split(' ')[1];
-  let decodedToken;
+  let user;
   try {
-    decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    user = jwt.verify(token, process.env.JWT_SECRET);
   } catch (err) {
-    req.isAuth = false;
-    return next();
+    authStaus = false;
+    return authStaus;
   }
-  if (!decodedToken) {
-    req.isAuth = false;
-    return next();
+  if (!user) {
+    authStaus = false;
+    return authStaus;
   }
-  req.userId = decodedToken.userId;
-  req.isAuth = true;
-  next();
+  authStaus = true;
+  return {user, authStaus};
 };
