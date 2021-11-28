@@ -3,14 +3,17 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { ApolloServer } = require('apollo-server-express');
-const { typeDefs } = require('./Shemas/Typedef');
-const { resolvers } = require('./Shemas/Resolver');
+const { typeDefs } = require('./graphql/schema');
+const { resolvers } = require('./graphql/resolver');
 const app = express();
+const auth = require('./middleware/Auth');
+
 const server = new ApolloServer({typeDefs, resolvers});
 server.applyMiddleware({app});
 
 dotenv.config();
 app.use(bodyParser.json());
+app.use(auth);
 
 app.use((req, res, next) => {
     console.log("server express started");
