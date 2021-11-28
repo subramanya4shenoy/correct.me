@@ -13,10 +13,17 @@ const resolvers = {
         },
 
 
-        getShareLink(parent, args, context) {
-            console.log(context.authStaus);
-            if(context.authStaus) {
-                return "https://cm.com/gf/122111"
+        getShareLink: async function(parent, args, context) {
+            const { user, authStaus } = context;
+            let userId= '';
+            if(authStaus) {
+                const currentUser = await User.findOne({userID: user.userID})
+                if(currentUser) {
+                    userId = currentUser._id.toString();
+                } else {
+                    console.log("usr not found");
+                }
+                return `https://cm.com/gf/${userId}`
             }
             return "relogin"
         }
