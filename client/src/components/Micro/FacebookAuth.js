@@ -12,14 +12,17 @@ const FacebookAuth = () => {
     },
   });
 
-  const login = ({ AuthenticateFacebookUser }) => {
-    const { accessToken, name, id } = AuthenticateFacebookUser;
+  const login = async ({ AuthenticateFacebookUser }) => {
     console.log(AuthenticateFacebookUser);
     // setStorage
+    let store = await storeDataToLocalStorage(AuthenticateFacebookUser);
+    await navigate("../feedback", { replace: true });
+  };
+
+  const storeDataToLocalStorage = ({ accessToken, name, id }) => {
     localStorage.setItem('token', accessToken);
     localStorage.setItem('user', JSON.stringify({ name: name, id: id }));
-    navigate("../feedback", { replace: true });
-  };
+  }
 
   const responseFacebook = (response) => {
     console.log(response);

@@ -13,9 +13,12 @@ const resolvers = {
         },
 
 
-        getShareLink(parent, args, { user, authStaus }) {
-            console.log(user, authStaus);
-            return "https://cm.com/gf/122111"
+        getShareLink(parent, args, context) {
+            console.log(context.authStaus);
+            if(context.authStaus) {
+                return "https://cm.com/gf/122111"
+            }
+            return "relogin"
         }
     },
 
@@ -30,7 +33,7 @@ const resolvers = {
             return true;
         },
 
-        AuthenticateFacebookUser: async function(parent, args) {
+        AuthenticateFacebookUser: async function(parent, args, {user, authStaus}) {
             const { userID, accessToken, name, graphDomain } = args;
             const userDoc = await User.findOne({ userID: userID});
             // if user not found create new one
