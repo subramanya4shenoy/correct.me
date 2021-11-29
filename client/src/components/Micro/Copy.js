@@ -11,17 +11,19 @@ const CopyButton = ({ copyToClipboard }) => {
   };
 
   return (
-    <img
-      className={`h-5 my-1.5 px-1 cursor-pointer inline active:bg-green-700 ${
-        shake ? `shake` : null
-      }`}
-      src={copy}
-      alt='share'
-      onClick={() => {
-        copyToClipboard();
-        animate();
-      }}
-    />
+    <div className='border border-l-0 border-primarylight rounded-r'>
+      <img
+        className={`h-5 my-1.5 px-1 cursor-pointer inline ${
+          shake ? `shake` : null
+        }`}
+        src={copy}
+        alt='share'
+        onClick={() => {
+          copyToClipboard();
+          animate();
+        }}
+      />
+    </div>
   );
 };
 

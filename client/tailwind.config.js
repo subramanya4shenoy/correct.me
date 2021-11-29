@@ -6,16 +6,17 @@ module.exports = {
     colors: {
       body: '#FDF7F2',
       textCommon: '#343433',
+      primarylightest: '#E2EFE1',
       primarylighter: '#C8FACD',
       primarylight: '#5BE584',
       primarymain: '#00AB55',
       primarydark: '#007B55',
       primarydarker: '#005249',
-      primarycontrastText: '#fff'
-    }
+      primarycontrastText: '#fff',
+    },
   },
   variants: {
     extend: {},
   },
   plugins: [],
-}
+};
