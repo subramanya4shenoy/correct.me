@@ -25,13 +25,13 @@ const typeDefs = gql`
 
     #queries
     type Query {
-        getFeedbacks(type:String!): [Feedback!]!
+        getFeedbacks: [Feedback!]!
         getShareLink: String!
     }
 
     #Mutaions
     type Mutation {
-        postFeedback(message: String!): Feedback!
+        postFeedback(id: String!, message: String!): Boolean!
         deleteFeedback(id:ID!): Boolean!
         AuthenticateFacebookUser(accessToken: String!,
                                 id: String!,

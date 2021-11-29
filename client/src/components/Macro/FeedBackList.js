@@ -4,13 +4,13 @@ import FeedbackCard from '../Micro/FeedbackCard';
 import { GET_FEEDBACKS } from '../../Resolvers/Feedbacks';
 import { useLazyQuery } from '@apollo/client';
 
-const FeedBackList = ({ selectedMenu }) => {
+const FeedBackList = ({selectedMenu}) => {
 
     const [getFeedbacks, { loading, error, data }] = useLazyQuery(GET_FEEDBACKS);
 
     useEffect(() => {
         console.log("menu changed");
-        getFeedbacks({ variables: { type: selectedMenu } })
+        getFeedbacks()
     }, [selectedMenu])
 
     return (
