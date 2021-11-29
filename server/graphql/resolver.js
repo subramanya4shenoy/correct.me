@@ -2,15 +2,14 @@ const User = require('../Models/user');
 const Feedback = require('../Models/Feedback');
 
 const jwt = require('jsonwebtoken');
-const user = require('../Models/user');
 
 const resolvers = {
     Query: {
         me: (parents, args, { user, authStaus }) => {
-            if(authStaus) {
-                return true;
-            } 
-            return false;
+            if (authStaus) { 
+                return true; 
+            }
+            return false; 
         },
 
         getFeedbacks: async function (parents, args, context) {
@@ -47,7 +46,7 @@ const resolvers = {
                 } else {
                     console.log("usr not found");
                 }
-                return `https://cm.com/gf/${userId}`
+                return userId
             }
             return "relogin"
         }
@@ -74,14 +73,14 @@ const resolvers = {
             return false;
         },
 
-        deleteFeedback: async function(parent, args, { user, authStaus }) {
+        deleteFeedback: async function (parent, args, { user, authStaus }) {
             const { id } = args;
             console.log(id, user);
-            if(authStaus) {
-                const removeFeedback = await Feedback.find({ _id:id }).remove().exec();
-                if(removeFeedback) {
-                    let currentUser = await User.findOne({userID:user.userID});
-                    if(currentUser) {
+            if (authStaus) {
+                const removeFeedback = await Feedback.find({ _id: id }).remove().exec();
+                if (removeFeedback) {
+                    let currentUser = await User.findOne({ userID: user.userID });
+                    if (currentUser) {
                         console.log("currentUser ==>", currentUser);
                         currentUser.feedback_recieved.splice(currentUser.feedback_recieved.indexOf(id), 1);
                         currentUser.save();
@@ -124,6 +123,6 @@ const resolvers = {
             return ({ name: userDoc.name, id: userID, accessToken: token })
         }
     }
-} 
+}
 
 module.exports = { resolvers }
