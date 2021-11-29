@@ -6,6 +6,13 @@ const user = require('../Models/user');
 
 const resolvers = {
     Query: {
+        me: (parents, args, { user, authStaus }) => {
+            if(authStaus) {
+                return true;
+            } 
+            return false;
+        },
+
         getFeedbacks: async function (parents, args, context) {
             const { user, authStaus } = context;
             if (authStaus) {

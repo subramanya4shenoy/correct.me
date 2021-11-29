@@ -22,4 +22,4 @@ const Feedback = ({ feedbackId }) => {
     )
 }
 
-export default Feedback
+export default Feedback;
