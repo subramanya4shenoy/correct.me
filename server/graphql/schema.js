@@ -27,6 +27,7 @@ const typeDefs = gql`
     type Query {
         getFeedbacks: [Feedback!]!
         getShareLink: String!
+        me:Boolean!
     }
 
     #Mutaions
