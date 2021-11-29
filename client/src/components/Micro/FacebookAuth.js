@@ -42,7 +42,7 @@ const FacebookAuth = () => {
         <>Loading..</>
       ) : (
         <FacebookLogin
-          appId='293926452664320'
+          appId={process.env.REACT_APP_CLIENT_ID_FB}
           autoLoad={false}
           callback={responseFacebook}
         />

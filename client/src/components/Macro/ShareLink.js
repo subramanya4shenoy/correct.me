@@ -31,7 +31,7 @@ const ShareLink = () => {
       ) : (
         <>
           <div className='bg-primarylightest px-4 py-1 rounded-l text-left text-primarymain self-center border border-primarylight'>
-            {data.getShareLink}
+            {process.env.REACT_APP_DOMAIN + "/gf/" +data.getShareLink}
           </div>
           <CopyButton copyToClipboard={copyToClipboard} />
           <Snackbar
