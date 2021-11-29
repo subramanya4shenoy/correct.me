@@ -9,7 +9,7 @@ const resolvers = {
             if (authStaus) { 
                 return true; 
             }
-            return false;
+            return false; 
         },
 
         getFeedbacks: async function (parents, args, context) {
