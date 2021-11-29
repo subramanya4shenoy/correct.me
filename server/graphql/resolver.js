@@ -117,6 +117,6 @@ const resolvers = {
             return ({ name: userDoc.name, id: userID, accessToken: token })
         }
     }
-}
+} 
 
 module.exports = { resolvers }
