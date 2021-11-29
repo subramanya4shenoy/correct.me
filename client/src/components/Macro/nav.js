@@ -1,29 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import Logo from '../Micro/Logo';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { ME } from '../../Resolvers/Me';
 
 const Nav = () => {
-  const [loggedIn, setLoggedIn] = useState(() => {
-    // getting stored value from localstorage to check if user is authenticated
-    // to be replaced later with usecontext
-    const saved = localStorage.getItem('user');
-    const initialValue = JSON.parse(saved);
-    return initialValue || '';
-  });
+  let navigate = useNavigate();
+  const {loading, data} = useQuery(ME, {fetchPolicy: 'network-only'});
 
   return (
     <div className='flex justify-between w-screen px-20'>
-      {console.log(loggedIn)}
       <div className='self-center'>
         <Logo />
       </div>
-      {!loggedIn ? (
+      {(!loading && data) &&
+      ((!data.me) ? (
         <Button
           className='futuraMedium self-center'
           variant='text'
-          component={Link}
-          to='/login'
+          onClick={() => { navigate("/feedback", { replace: true })}}
         >
           Login
         </Button>
@@ -31,13 +27,11 @@ const Nav = () => {
         <Button
           className='futuraMedium self-center'
           variant='text'
-          onClick={() => localStorage.clear()}
-          component={Link}
-          to='/'
+          onClick={() =>{ sessionStorage.clear(); navigate("/", { replace: true })}}
         >
           Logout
         </Button>
-      )}
+      ))}
     </div>
   );
 };
