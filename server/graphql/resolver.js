@@ -6,10 +6,20 @@ const jwt = require('jsonwebtoken');
 const resolvers = {
     Query: {
         me: (parents, args, { user, authStaus }) => {
-            if (authStaus) { 
-                return true; 
+            if (authStaus) {
+                return true;
             }
-            return false; 
+            return false;
+        },
+
+        getUserWithId: async (parent, args) => {
+            const { id } = args;
+            const getUserInfo = await User.findOne({ _id: id });
+            if (getUserInfo) {
+                return getUserInfo.name;
+            } else {
+                console.log("user not found");
+            }
         },
 
         getFeedbacks: async function (parents, args, context) {
