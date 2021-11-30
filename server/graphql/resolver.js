@@ -18,29 +18,32 @@ const resolvers = {
             if (getUserInfo) {
                 return getUserInfo.name;
             } else {
-                console.log("user not found");
+                const error = new Error('User Not Found!');
+                error.code = 401;
+                throw error;
             }
         },
 
         getFeedbacks: async function (parents, args, context) {
             const { user, authStaus } = context;
             if (authStaus) {
-                console.log(user);
                 const getUserFeedBacks = await User.findOne({ userID: user.userID });
                 if (getUserFeedBacks) {
-                    console.log("user data ===>", getUserFeedBacks);
                     const allFeedbacksForCurrentUser = await Feedback.find({ _id: { $in: getUserFeedBacks.feedback_recieved } })
                     if (allFeedbacksForCurrentUser) {
-                        console.log("feedback data ===>", allFeedbacksForCurrentUser);
                         return allFeedbacksForCurrentUser;
                     } else {
                         return [];
                     }
                 } else {
-                    console.log("user doesnot exists")
+                    const error = new Error('User Not Found!');
+                    error.code = 401;
+                    throw error;
                 }
             } else {
-                console.log("not authorised")
+                const error = new Error('User Not authenticated!');
+                error.code = 401;
+                throw error;
             }
             return [];
         },
@@ -54,11 +57,15 @@ const resolvers = {
                 if (currentUser) {
                     userId = currentUser._id.toString();
                 } else {
-                    console.log("usr not found");
+                    const error = new Error('User Not found');
+                    error.code = 401;
+                    throw error;
                 }
                 return userId
             }
-            return "relogin"
+            const error = new Error('User Not authenticated');
+            error.code = 401;
+            throw error;
         }
     },
 
@@ -75,10 +82,14 @@ const resolvers = {
                     createdFeedback.save();
                     return true;
                 } else {
-                    console.log("Feedback creation failed");
+                    const error = new Error('Feedback creation failed');
+                    error.code = 401;
+                    throw error;
                 }
             } else {
-                console.log("User doesnot exists");
+                const error = new Error('User doesnot exists');
+                error.code = 401;
+                throw error;
             }
             return false;
         },
@@ -91,16 +102,19 @@ const resolvers = {
                 if (removeFeedback) {
                     let currentUser = await User.findOne({ userID: user.userID });
                     if (currentUser) {
-                        console.log("currentUser ==>", currentUser);
                         currentUser.feedback_recieved.splice(currentUser.feedback_recieved.indexOf(id), 1);
                         currentUser.save();
                         return true;
                     }
                 } else {
-                    console.log("remove was failure");
+                    const error = new Error('Not able to remove the feedback');
+                    error.code = 401;
+                    throw error;
                 }
             } else {
-                console.log("Not authorised");
+                const error = new Error('Not authenticated');
+                error.code = 401;
+                throw error;
             }
             return false;
         },
@@ -113,7 +127,11 @@ const resolvers = {
                 const tempUser = await new User({ userID: userID, name: name, source: graphDomain, feedback_recieved: [], feedback_given: [] });
                 if (tempUser) {
                     const succesfullysaved = await tempUser.save();
-                    if (!succesfullysaved) { console.log("error saving data"); }
+                    if (!succesfullysaved) {
+                        const error = new Error("daving failed");
+                        error.code = 401;
+                        throw error;
+                     }
                     else {
                         // generate jwt and return
                         const token = jwt.sign({
