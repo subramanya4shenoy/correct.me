@@ -9,7 +9,7 @@ query getFeedbacks {
 `;
 
 export const POST_FEEDBACKS = gql`
-    mutation postFeedback($id:String, $message: String) {
+    mutation postFeedback($id:String!, $message: String!) {
         postFeedback(id: $id, message: $message)
     }
 `
