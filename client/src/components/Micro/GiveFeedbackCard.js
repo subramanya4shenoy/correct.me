@@ -38,7 +38,7 @@ const GiveFeedbackCard = ({feedbackUserId}) => {
                     <textarea className="border-2 rounded-xl w-full  outline-none border-primarylight text-textCommon p-2 overflow-auto" 
                         onChange={(e) => { setmessage(e.target.value)}}/>
                 </div>
-                <div className="flex justify-between absolute bottom-0 w-full p-5">
+                <div className="flex justify-between absolute bottom-0 w-full p-5"> 
                 {(!done) ? (
                     <Button className="w-full" variant="contained" onClick= {(e) => {postFeedback({variables: {id: feedbackUserId, message: message}})}}>Send</Button>
                     ) :
