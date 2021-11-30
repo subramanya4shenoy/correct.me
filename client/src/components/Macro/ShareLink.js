@@ -11,7 +11,9 @@ const ShareLink = () => {
   const [open, setOpen] = useState(false);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(data.getShareLink);
+    navigator.clipboard.writeText(
+      process.env.REACT_APP_DOMAIN + '/gf/' + data.getShareLink
+    );
     setOpen(true);
   };
 
@@ -31,7 +33,7 @@ const ShareLink = () => {
       ) : (
         <>
           <div className='bg-primarylightest px-4 py-1 rounded-l text-left text-primarymain self-center border border-primarylight'>
-            {process.env.REACT_APP_DOMAIN + "/gf/" +data.getShareLink}
+            {process.env.REACT_APP_DOMAIN + '/gf/' + data.getShareLink}
           </div>
           <CopyButton copyToClipboard={copyToClipboard} />
           <Snackbar
