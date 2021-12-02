@@ -9,6 +9,7 @@ const typeDefs = gql`
     type User {
         name: String!
         id: String!
+        short_name: String!
         accessToken: String!
     }
 
@@ -39,6 +40,8 @@ const typeDefs = gql`
                                 id: String!,
                                 name: String!,
                                 userID: String!,
+                                email: String!,
+                                short_name: String!,
                                 graphDomain: String!,
                                 data_access_expiration_time: Float,
                                 expiresIn: Float,

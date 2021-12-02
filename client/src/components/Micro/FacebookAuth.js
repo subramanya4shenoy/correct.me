@@ -25,9 +25,9 @@ const FacebookAuth = () => {
       }
   };
 
-  const storeDataToSessionStorage = async ({ accessToken, name, id }) => {
+  const storeDataToSessionStorage = async ({ accessToken, name, id, short_name }) => {
     await sessionStorage.setItem('token', accessToken);
-    await sessionStorage.setItem('user', JSON.stringify({ name: name, id: id }));
+    await sessionStorage.setItem('user', JSON.stringify({ name: name, id: id, short_name: short_name }));
   }
 
   const responseFacebook = (response) => {
@@ -44,6 +44,7 @@ const FacebookAuth = () => {
         <FacebookLogin
           appId={process.env.REACT_APP_CLIENT_ID_FB}
           autoLoad={false}
+          fields="name,email,picture,short_name"
           callback={responseFacebook}
         />
       )}

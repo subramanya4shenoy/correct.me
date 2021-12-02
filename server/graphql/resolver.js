@@ -16,7 +16,7 @@ const resolvers = {
             const { id } = args;
             const getUserInfo = await User.findOne({ _id: id });
             if (getUserInfo) {
-                return getUserInfo.name;
+                return getUserInfo.short_name;
             } else {
                 const error = new Error('User Not Found!');
                 error.code = 401;
@@ -120,11 +120,11 @@ const resolvers = {
         },
 
         AuthenticateFacebookUser: async function (parent, args, { user, authStaus }) {
-            const { userID, accessToken, name, graphDomain } = args;
+            const { userID, accessToken, name, email, short_name, graphDomain } = args;
             const userDoc = await User.findOne({ userID: userID });
             // if user not found create new one
             if (!userDoc) {
-                const tempUser = await new User({ userID: userID, name: name, source: graphDomain, feedback_recieved: [], feedback_given: [] });
+                const tempUser = await new User({ userID: userID, name: name, source: graphDomain, short_name: short_name, email: email, feedback_recieved: [], feedback_given: [] });
                 if (tempUser) {
                     const succesfullysaved = await tempUser.save();
                     if (!succesfullysaved) {
@@ -138,7 +138,7 @@ const resolvers = {
                             userID: userID,
                             accessToken: accessToken
                         }, process.env.JWT_SECRET, { expiresIn: '1h' });
-                        return ({ name: "subu", id: userID, accessToken: token })
+                        return ({ name: name, id: userID, accessToken: token, short_name: short_name})
                     }
                 }
             }
