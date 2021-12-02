@@ -16,12 +16,13 @@ const LandingHero = () => {
         <div className='text-6xl text-textCommon futuraBold leading-tight'>
           Get to know <br /> Yourself better
         </div>
-        <div className='tex-xl pt-6 futuraMedium text-textCommon opacity-50'>
+        <div className='tex-xl pt-6 futuraMedium text-textCommon'>
+          <span className="opacity-50">
           Anonymous feedback system. Share with your friends <br />
           and get the honest feedback about yourself
-        </div>
+          </span>
         {!loading && data && data.me && (
-          <div className='mt-2'>
+          <div className='mt-10'>
             <Button
               size='medium'
               variant='contained'
@@ -33,6 +34,7 @@ const LandingHero = () => {
             </Button>
           </div>
         )}
+        </div>
       </div>
       <div className='w-1/2 flex h-full pl-10'>
         <div className='self-end'>
