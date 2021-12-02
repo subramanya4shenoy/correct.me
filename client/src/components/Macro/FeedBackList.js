@@ -39,4 +39,4 @@ const FeedBackList = () => {
     )
 }
 
-export default FeedBackList
+export default FeedBackList 
