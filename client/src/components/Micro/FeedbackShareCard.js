@@ -29,9 +29,8 @@ const FeedbackShareCard = ({ feedback }) => {
                 <div className="pt-6 px-4 futuraMedium text-sm text-textCommon opacity-70 text-center max-h-56 h-auto overflow-auto">
                     {feedback}
                 </div>
-                <div className="flex justify-between absolute bottom-0 w-full p-5">
+                <div className="flex justify-end absolute bottom-0 w-full p-5">
                     <div className="self-center"><ShareButton/></div>
-                    <div className="self-center"><DeleteButton/></div>
                 </div>
             </Box>
         </div>

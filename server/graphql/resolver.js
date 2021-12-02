@@ -124,7 +124,7 @@ const resolvers = {
             const userDoc = await User.findOne({ userID: userID });
             // if user not found create new one
             if (!userDoc) {
-                const tempUser = await new User({ userID: userID, name: name, source: graphDomain, short_name: short_name, email: email, feedback_recieved: [], feedback_given: [] });
+                const tempUser = await new User({ userID: userID, name: name, source: graphDomain, short_name:(short_name || name), email: email, feedback_recieved: [], feedback_given: [] });
                 if (tempUser) {
                     const succesfullysaved = await tempUser.save();
                     if (!succesfullysaved) {
@@ -148,7 +148,7 @@ const resolvers = {
                 accessToken: accessToken
             }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-            return ({ name: userDoc.name, id: userID, accessToken: token })
+            return ({ name: userDoc.name, id: userID, accessToken: token, short_name: short_name })
         }
     }
 }

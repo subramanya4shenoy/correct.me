@@ -5,10 +5,11 @@ import { GET_FEEDBACKS } from '../../Resolvers/Feedbacks';
 import { useLazyQuery } from '@apollo/client';
 import Button from '@mui/material/Button';
 import refresh from '../../assets/images/refresh.svg';
+import { ZeroState } from '../Micro/ZeroState';
 
 const FeedBackList = () => {
 
-    const [getFeedbacks, { loading, error, data }] = useLazyQuery(GET_FEEDBACKS, { fetchPolicy: 'network-only'});
+    const [getFeedbacks, { loading, error, data }] = useLazyQuery(GET_FEEDBACKS, { fetchPolicy: 'network-only' });
 
     useEffect(() => {
         console.log("menu changed");
@@ -21,7 +22,7 @@ const FeedBackList = () => {
                 <div className="text-textCommon futuraMedium text-sm self-center opacity-75">Feedbacks Received</div>
                 <div className="self-center">
                     <Button variant="text" onClick={(e) => { getFeedbacks() }}>
-                        <img className="mr-2 text-pr w-5" src= {refresh} alt="refresh"/>
+                        <img className="mr-2 text-pr w-5" src={refresh} alt="refresh" />
                         Refresh
                     </Button>
                 </div>
@@ -29,14 +30,17 @@ const FeedBackList = () => {
 
             <div className="mt-4 rounded-t-lg p-4 h-auto max-h-screen overflow-auto pb-72">
                 {(!loading && data) &&
-                    (data.getFeedbacks.map((feedback, index) => {
-                        return <FeedbackCard message={feedback.message} key={index + "_messages"} />
-                    }))
+                    (data.getFeedbacks.length === 0) ?
+                    (<ZeroState message="Nothing yet! Please share your link." />) :
+                    (  (data) &&
+                        (data.getFeedbacks.map((feedback, index) => {
+                            return <FeedbackCard message={feedback.message} key={index + "_messages"} />
+                        }))
+                    )
                 }
-
             </div>
         </div>
     )
 }
 
-export default FeedBackList 
+export default FeedBackList
