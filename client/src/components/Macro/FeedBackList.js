@@ -4,10 +4,11 @@ import FeedbackCard from '../Micro/FeedbackCard';
 import { GET_FEEDBACKS } from '../../Resolvers/Feedbacks';
 import { useLazyQuery } from '@apollo/client';
 import Button from '@mui/material/Button';
+import refresh from '../../assets/images/refresh.svg';
 
 const FeedBackList = () => {
 
-    const [getFeedbacks, { loading, error, data }] = useLazyQuery(GET_FEEDBACKS);
+    const [getFeedbacks, { loading, error, data }] = useLazyQuery(GET_FEEDBACKS, { fetchPolicy: 'network-only'});
 
     useEffect(() => {
         console.log("menu changed");
@@ -19,8 +20,9 @@ const FeedBackList = () => {
             <div className="flex w-full mx-auto justify-between">
                 <div className="text-textCommon futuraMedium text-sm self-center opacity-75">Feedbacks Received</div>
                 <div className="self-center">
-                    <Button variant="text" >
-                        refresh
+                    <Button variant="text" onClick={(e) => { getFeedbacks() }}>
+                        <img className="mr-2 text-pr w-5" src= {refresh} alt="refresh"/>
+                        Refresh
                     </Button>
                 </div>
             </div>
@@ -37,4 +39,4 @@ const FeedBackList = () => {
     )
 }
 
-export default FeedBackList
+export default FeedBackList 
