@@ -9,7 +9,7 @@ const Feedback = ({ feedbackId }) => {
     <>
       <Nav />
       <div className='futuraMedium text-textCommon text-center py-4 w-full text-4xl'>
-        Hi Subu !
+        Hi {JSON.parse(sessionStorage.getItem('user')).short_name}
       </div>
       <ShareLink />
       <div className='flex justify-center'>
