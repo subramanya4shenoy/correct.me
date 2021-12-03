@@ -17,8 +17,8 @@ const FeedBackList = () => {
     }, [])
 
     return (
-        <div className="w-2/3">
-            <div className="flex w-full mx-auto justify-between">
+        <div className="w-full">
+            <div className="flex w-full mx-auto justify-between mobile:px-4 mobile:w-screen mobile:bg-body mobile:top-0 mobile:z-20 mobile:sticky mobile:py-4">
                 <div className="text-textCommon futuraMedium text-sm self-center opacity-75">Feedbacks Received</div>
                 <div className="self-center">
                     <Button variant="text" onClick={(e) => { getFeedbacks() }}>
@@ -28,7 +28,8 @@ const FeedBackList = () => {
                 </div>
             </div>
 
-            <div className="mt-4 rounded-t-lg p-4 h-auto max-h-screen overflow-auto pb-72">
+            <div className="mt-4 rounded-t-lg p-4 h-auto desktop:max-h-screen overflow-auto pb-72
+                            mobile:mt-0 mobile:pt-2 mobile:h-auto mobile:overflow-visible">
                 {(!loading && data) &&
                     (data.getFeedbacks.length === 0) ?
                     (<ZeroState message="Nothing yet! Please share your link." />) :
