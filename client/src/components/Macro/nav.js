@@ -10,7 +10,7 @@ const Nav = () => {
   const { loading, data } = useQuery(ME, { fetchPolicy: 'network-only' });
 
   return (
-    <div className='flex justify-between w-screen px-20'>
+    <div className='flex justify-between w-screen desktop:px-20 mobile:px-4 mobile:py-4 mobile:fixed mobile:top-0'>
       <div className='self-center'>
         <Logo />
       </div>
