@@ -54,12 +54,16 @@ const FacebookAuth = () => {
           callback={responseFacebook}
           fields="name,email,picture,short_name"
           render={renderProps => (
-            <button className="" onClick={renderProps.onClick}>signin with meta</button>
+            <div className="text-sm text-primarycontrastText rounded-full p-4 w-56 justify-center mx-auto cursor-pointer hover:shadow-lg"
+              style={{ background: "linear-gradient(74deg, rgba(17,101,224,1) 35%, rgba(29,128,250,1) 48%)" }} onClick={renderProps.onClick}>
+              Sign In Now
+            </div>
           )}
         />
       )}
     </>
   );
 };
+
 
 export default FacebookAuth;

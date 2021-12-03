@@ -8,16 +8,12 @@ const Feedback = ({ feedbackId }) => {
   return (
     <>
       <Nav />
-      <div className='futuraMedium text-textCommon text-center py-4 w-full text-4xl'>
+      <div className='futuraMedium text-textCommon text-center py-4 w-full text-4xl mobile:mt-20 mobile:text-2xl'>
         Hi {JSON.parse(sessionStorage.getItem('user')).short_name}
       </div>
       <ShareLink />
-      <div className='flex justify-center'>
-        <div className='w-3/12'>
-        </div>
-        <div className='w-9/12'>
-          <FeedBackList />
-        </div>
+      <div className='w-1/3 mx-auto mobile:w-screen'>
+        <FeedBackList />
       </div>
       {feedbackId && <>popover</>}
     </>

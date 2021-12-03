@@ -6,7 +6,9 @@ import WithAuth from '../utils/withAuth';
 const FeedbackPage = () => {
     let { feedbackId } = useParams();
     return (
-        <Feedback feedbackId={feedbackId}/>
+        <div className="mobile:h-screen mobile:overflow-y-auto">
+            <Feedback feedbackId={feedbackId}/>
+        </div>
     )
 }
 
