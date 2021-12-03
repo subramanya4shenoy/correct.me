@@ -56,7 +56,7 @@ const FacebookAuth = () => {
           render={renderProps => (
             <div className="text-sm text-primarycontrastText rounded-full p-4 w-56 justify-center mx-auto cursor-pointer hover:shadow-lg"
               style={{ background: "linear-gradient(74deg, rgba(17,101,224,1) 35%, rgba(29,128,250,1) 48%)" }} onClick={renderProps.onClick}>
-              Sign In Now
+              Sign In Now 
             </div>
           )}
         />
