@@ -6,7 +6,7 @@ const Logo = () => {
   const navigate = useNavigate();
   return (
     <img
-      className='w-16 cursor-pointer'
+      className='desktop:w-16 cursor-pointer mobile:w-10'
       src={logo}
       alt={'Correct me Logo'}
       onClick={() => navigate('/')}

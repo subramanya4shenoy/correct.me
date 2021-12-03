@@ -6,9 +6,9 @@ import AllwaysFree from './Micro/AllwaysFree'
 const Login = () => {
     return (
         <div>
-           <Nav/>
+          <Nav/>
           <LoginHero />
-          <AllwaysFree />
+          <AllwaysFree className="mobile:hidden desktop:block"/>
         </div>
     )
 }

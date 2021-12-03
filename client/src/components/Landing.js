@@ -5,10 +5,10 @@ import AllwaysFree from './Micro/AllwaysFree'
 
 const Landing = () => {
     return (
-        <div className="w-screen h-screen bg-body text-textCommon">
+        <div className="w-screen h-screen bg-body text-textCommon mobile:overflow-hidden">
             <Nav/>
             <LandingHero/>
-            <AllwaysFree />
+            <AllwaysFree className="mobile:hidden desktop:block"/>
         </div>
     )
 }
