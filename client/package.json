@@ -18,6 +18,7 @@
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "react-share": "^4.4.0",
+    "react-document-title": "2.0.3",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -47,6 +48,7 @@
   "devDependencies": {
     "autoprefixer": "^9.8.8",
     "postcss": "^7.0.39",
+    "react-document-title": "^2.0.3",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   }
 }
