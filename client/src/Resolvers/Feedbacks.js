@@ -13,3 +13,11 @@ export const POST_FEEDBACKS = gql`
         postFeedback(id: $id, message: $message)
     }
 `
+
+export const GET_FEEDBACK_WITH_ID = gql`
+    query getFeedbackWithId($id:String!) {
+        getFeedbackWithId(id: $id) {
+            message
+        }
+    }
+`
