@@ -36,4 +36,4 @@
  
 #### 🔵 __Deployment__ ####
  - ☄️ Heroku - Node 
- - ☄️ aws-s3 - UI (not decided)
+ - ☄️ Netlify - UI (May be)
