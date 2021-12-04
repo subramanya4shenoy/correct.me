@@ -1,12 +1,15 @@
-import React from 'react'
-import Login from '../components/Login'
+import React from 'react';
+import DocumentTitle from 'react-document-title';
+import Login from '../components/Login';
 
 const LoginPage = () => {
-    return (
-        <div>
-            <Login/>
-        </div>
-    )
-}
+  return (
+    <DocumentTitle title='Login'>
+      <div>
+        <Login />
+      </div>
+    </DocumentTitle>
+  );
+};
 
-export default LoginPage
+export default LoginPage;
