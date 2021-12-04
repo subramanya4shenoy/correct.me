@@ -24,6 +24,18 @@ const resolvers = {
             }
         },
 
+        getFeedbackWithId: async (parent, args) => {
+            const { id } = args;
+            const getFeedbackInfo = await Feedback.findOne({_id: id});
+            if(getFeedbackInfo) {
+                return getFeedbackInfo;
+            } else {
+                const error = new Error('Feedback Not Found!');
+                error.code = 401;
+                throw error;
+            }
+        },
+
         getFeedbacks: async function (parents, args, context) {
             const { user, authStaus } = context;
             if (authStaus) {

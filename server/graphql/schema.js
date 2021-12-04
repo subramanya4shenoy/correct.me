@@ -30,6 +30,7 @@ const typeDefs = gql`
         getShareLink: String!
         me:Boolean!
         getUserWithId(id: String!): String!
+        getFeedbackWithId(id: String!): Feedback!
     }
 
     #Mutaions

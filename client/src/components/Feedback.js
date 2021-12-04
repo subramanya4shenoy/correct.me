@@ -3,7 +3,7 @@ import FeedBackList from './Macro/FeedBackList';
 import Nav from './Macro/nav';
 import ShareLink from './Macro/ShareLink';
 
-const Feedback = ({ feedbackId }) => {
+const Feedback = () => {
 
   return (
     <>
@@ -15,7 +15,6 @@ const Feedback = ({ feedbackId }) => {
       <div className='w-1/3 mx-auto mobile:w-screen'>
         <FeedBackList />
       </div>
-      {feedbackId && <>popover</>}
     </>
   );
 };
