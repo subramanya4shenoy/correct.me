@@ -35,7 +35,7 @@ const FeedBackList = () => {
                     (<ZeroState message="Nothing yet! Please share your link." />) :
                     (  (data) &&
                         (data.getFeedbacks.map((feedback, index) => {
-                            return <FeedbackCard message={feedback.message} key={index + "_messages"} />
+                            return <FeedbackCard feedback={feedback} key={index + "_messages"} />
                         }))
                     )
                 }

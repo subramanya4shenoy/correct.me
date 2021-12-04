@@ -27,10 +27,12 @@ const FeedbackShareCard = ({ feedback }) => {
                 <img className="relative z-20 mx-auto h-24 mt-12" src={cactus} alt="pp"/>
                 <img className="absolute left-0 top-0 w-full z-10" src={bgm} alt="bgm"/>
                 <div className="pt-6 px-4 futuraMedium text-sm text-textCommon opacity-70 text-center max-h-56 h-auto overflow-auto">
-                    {feedback}
+                    {feedback.message}
                 </div>
                 <div className="flex justify-end absolute bottom-0 w-full p-5">
-                    <div className="self-center"><ShareButton/></div>
+                    <div className="self-center">
+                        <ShareButton link={`${process.env.REACT_APP_DOMAIN}/feedback/${feedback.id}`}/>
+                    </div>
                 </div>
             </Box>
         </div>
