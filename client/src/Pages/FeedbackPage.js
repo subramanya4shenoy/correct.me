@@ -10,7 +10,7 @@ const FeedbackPage = () => {
         <div className="mobile:h-screen mobile:overflow-y-auto">
             {(feedbackId) ? 
             (<MyFeedback  feedbackId={feedbackId}/>) : 
-            (<Feedback />)
+            (<Feedback />) 
             }
         </div>
     )
