@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 export const GET_FEEDBACKS = gql`
 query getFeedbacks {
     getFeedbacks {
+        id
         message
     }
 }
