@@ -37,3 +37,4 @@
 #### 🔵 __Deployment__ ####
  - ☄️ Heroku - Node 
  - ☄️ Netlify - UI (May be)
+ - ☄️ Mongo DB Atlas - DB
