@@ -44,6 +44,5 @@
 
 
 #### End ####
-Project has been worked over 17days.
-This has been closed. but open for bug reporting, code review and CONTRIBUTIONS. 
+Project has been worked over 17days. <br> This is closed now, but open for bug reporting, code review and CONTRIBUTIONS. <br><br>
 with love ❤️❤️❤️❤️❤️
