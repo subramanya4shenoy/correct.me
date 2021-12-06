@@ -25,7 +25,6 @@ mongoose
     .connect(`mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.s8zg4.mongodb.net/${process.env.MONGO_DB_DEFAULT_DB}?retryWrites=true&w=majority`)
     .then(result => {
         app.listen({ port: process.env.PORT || 8080 });
-        console.log(`Server ready at ${url}`);
         console.log("connected to mongoDB")
     })
     .catch(err => {

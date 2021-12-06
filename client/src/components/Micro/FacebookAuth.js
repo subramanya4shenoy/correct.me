@@ -50,7 +50,7 @@ const FacebookAuth = () => {
         // />
         <FacebookLogin
           appId={process.env.REACT_APP_CLIENT_ID_FB}
-          autoLoad
+          autoLoad = { true }
           callback={responseFacebook}
           fields="name,email,picture,short_name"
           render={renderProps => (

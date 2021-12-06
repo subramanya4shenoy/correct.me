@@ -14,7 +14,7 @@ import {
 } from "@apollo/client";
 
 const httpLink = createHttpLink({
-  uri: process.env.REACT_APP_SERVER_END_POINT +"/graphql",
+  uri: "https://correctme-backend.herokuapp.com/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {

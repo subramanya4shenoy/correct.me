@@ -23,7 +23,6 @@ const GiveFeedback = () => {
               <div className='text-center text-textCommon text-2xl mt-20 futuraMedium'>
                 Give anonymous feedback to
                 <span className='capitalize futuraBold text-primarydark'>
-                  {' '}
                   {data.getUserWithId}{' '}
                 </span>
               </div>
@@ -33,7 +32,6 @@ const GiveFeedback = () => {
             ) : (
               <div className='text-center my-4'>
                 <div className='text-2xl my-24 text-primarymain futuraBold'>
-                  {' '}
                   Your feedback has been sent!
                 </div>
                 <div className='px-10'>
