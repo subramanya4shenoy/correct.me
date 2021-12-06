@@ -36,5 +36,10 @@
  
 #### 🔵 __Deployment__ ####
  - ☄️ Heroku - Node 
- - ☄️ Netlify - UI (May be)
+ - ☄️ Netlify - UI
  - ☄️ Mongo DB Atlas - DB
+
+#### 🔵 __DEMO__ ####
+- https://correct-me.netlify.app/ (Stage: pre-Alpha)
+
+
