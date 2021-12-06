@@ -43,3 +43,7 @@
 - https://correct-me.netlify.app/ (Stage: pre-Alpha)
 
 
+#### End ####
+Project has been worked over 17days.
+This has been closed. but open for bug reporting, code review and CONTRIBUTIONS. 
+with love ❤️❤️❤️❤️❤️
