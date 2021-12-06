@@ -2,7 +2,7 @@
 
 🧐 A self feedback collection tool. </br>
 🧐 Connect with Facebook and collect your feedback from your friends and peers anonymously*. </br>
-🧐 Share the link for feed back in social media, people with access can access and provide feedbacks.</br>
+🧐 Share the link for feedback in social media, people with access can access and provide feedbacks.</br>
 🧐 Users can check their feedback.
 <br>
 <br>
