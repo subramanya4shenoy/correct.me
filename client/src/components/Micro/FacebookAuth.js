@@ -3,8 +3,8 @@ import React from 'react';
 import { useMutation } from '@apollo/client';
 import { FB_LOGIN } from '../../Resolvers/FBLogin';
 import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom'
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import { useLocation } from 'react-router-dom';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 
 const FacebookAuth = () => {
   let navigate = useNavigate();
@@ -22,14 +22,22 @@ const FacebookAuth = () => {
     if (location.pathname.includes('/feedback')) {
       window.location.reload(true);
     } else {
-      await navigate("../feedback", { replace: true });
+      await navigate('../feedback', { replace: true });
     }
   };
 
-  const storeDataToSessionStorage = async ({ accessToken, name, id, short_name }) => {
+  const storeDataToSessionStorage = async ({
+    accessToken,
+    name,
+    id,
+    short_name,
+  }) => {
     await sessionStorage.setItem('token', accessToken);
-    await sessionStorage.setItem('user', JSON.stringify({ name: name, id: id, short_name: short_name }));
-  }
+    await sessionStorage.setItem(
+      'user',
+      JSON.stringify({ name: name, id: id, short_name: short_name })
+    );
+  };
 
   const responseFacebook = (response) => {
     console.log(response);
@@ -50,13 +58,19 @@ const FacebookAuth = () => {
         // />
         <FacebookLogin
           appId={process.env.REACT_APP_CLIENT_ID_FB}
-          autoLoad = { true }
+          autoLoad={false}
           callback={responseFacebook}
-          fields="name,email,picture,short_name"
-          render={renderProps => (
-            <div className="text-sm text-primarycontrastText rounded-full p-4 w-56 justify-center mx-auto cursor-pointer hover:shadow-lg"
-              style={{ background: "linear-gradient(74deg, rgba(17,101,224,1) 35%, rgba(29,128,250,1) 48%)" }} onClick={renderProps.onClick}>
-              Sign In Now 
+          fields='name,email,picture,short_name'
+          render={(renderProps) => (
+            <div
+              className='text-sm text-primarycontrastText rounded-full p-4 w-56 justify-center mx-auto cursor-pointer hover:shadow-lg'
+              style={{
+                background:
+                  'linear-gradient(74deg, rgba(17,101,224,1) 35%, rgba(29,128,250,1) 48%)',
+              }}
+              onClick={renderProps.onClick}
+            >
+              Sign In Now
             </div>
           )}
         />
@@ -64,6 +78,5 @@ const FacebookAuth = () => {
     </>
   );
 };
-
 
 export default FacebookAuth;

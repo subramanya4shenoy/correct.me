@@ -9,12 +9,12 @@ import { setContext } from '@apollo/client/link/context';
 import {
   ApolloClient,
   InMemoryCache,
-  createHttpLink, 
-  ApolloProvider
-} from "@apollo/client";
+  createHttpLink,
+  ApolloProvider,
+} from '@apollo/client';
 
 const httpLink = createHttpLink({
-  uri: "https://correctme-backend.herokuapp.com/graphql",
+  uri: 'https://correctme-backend.herokuapp.com/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -22,21 +22,21 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      Authorization: token ? `Bearer ${token}` : "",
-    }
-  }
+      Authorization: token ? `Bearer ${token}` : '',
+    },
+  };
 });
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeConfig>
-    <ApolloProvider client={client}>
-      <App/>
+      <ApolloProvider client={client}>
+        <App />
       </ApolloProvider>
     </ThemeConfig>
   </React.StrictMode>,
