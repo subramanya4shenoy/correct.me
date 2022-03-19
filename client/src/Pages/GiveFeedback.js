@@ -5,6 +5,7 @@ import GiveFeedbackCard from '../components/Micro/GiveFeedbackCard';
 import { useQuery } from '@apollo/client';
 import { GET_USER_INFO } from '../Resolvers/Me';
 import FacebookAuth from '../components/Micro/FacebookAuth';
+import GoogleAuth from '../components/Micro/GoogleAuth';
 
 const GiveFeedback = () => {
   const { feedbackId } = useParams();
@@ -36,6 +37,7 @@ const GiveFeedback = () => {
                 </div>
                 <div className='px-10'>
                   <FacebookAuth />
+                  <GoogleAuth />
                   <div className='text-sm text-textCommon opacity-75 futuraMedium py-10 w-1/2 mx-auto'>
                     If you are new or already has a login try to signIn and get
                     your feedback from your friends.
