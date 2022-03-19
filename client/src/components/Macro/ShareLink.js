@@ -35,7 +35,7 @@ const ShareLink = () => {
           <>
             <div className='bg-primarylightest px-4 py-1 rounded-l text-left text-primarymain self-center border border-primarylight
                           mobile:text-xs mobile:m mobile:rounded mobile:w-full mobile:mx-8'>
-              {process.env.REACT_APP_DOMAIN + '/gf/' + data.getShareLink}
+              {process.env.REACT_APP_DOMAIN + 'gf/' + data.getShareLink}
             </div>
             <div className="mobile:rounded mobile:justify-self-end mobile:border-primarylight">
              <CopyButton copyToClipboard={copyToClipboard} />
