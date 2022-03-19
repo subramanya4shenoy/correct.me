@@ -1,6 +1,7 @@
 {
-  "name": "createme",
+  "name": "correctme",
   "version": "0.1.0",
+  "homepage": " https://subramanya4shenoy.github.io/correct.me/",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.5.5",
@@ -11,6 +12,7 @@
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "gh-pages": "^3.2.3",
     "graphql": "^16.0.1",
     "react": "^17.0.2",
     "react-document-title": "2.0.3",
@@ -23,6 +25,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
