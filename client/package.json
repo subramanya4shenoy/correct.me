@@ -1,7 +1,6 @@
 {
   "name": "correctme",
   "version": "0.1.0",
-  "homepage": " https://subramanya4shenoy.github.io/correct.me/",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.5.5",
