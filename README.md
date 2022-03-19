@@ -1,4 +1,5 @@
 # Fullstack project (#1). 🎖  <a href='https://correct-me.netlify.app/'>Demo</a>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/36f7dcf8-6880-4a21-a4ad-f86813c7fb01/deploy-status)](https://app.netlify.com/sites/correct-me/deploys)
 
 🧐 A self feedback collection tool. </br>
 🧐 Connect with Facebook and collect your feedback from your friends and peers anonymously*. </br>
